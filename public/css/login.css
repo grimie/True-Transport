@@ -1,0 +1,132 @@
+/* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+    align-items: center;
+    width: 100%;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+/* Set a style for all buttons */
+button {
+    background-color: #23B14D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: 100%;
+    height: 130px;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+.forgotbtn {
+    width: 100%;
+    height: 130px;
+    padding: 18px 10px;
+    background-color: blue;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+.container{
+        width: auto;
+}
+/* Change styles for span and cancel button on extra small screens */
+
+.wrapper {
+        display: grid;
+    grid-gap: 10px;
+        grid-template-columns: auto auto;
+        background-color: #fff;
+        color: #444;
+    }
+
+    .box {
+        background-color: white;
+        color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        font-size: 150%;
+
+    }
+    .a {
+            width: auto;
+            height: auto;
+            grid-column: 1 / 2;
+            grid-row: row 1;
+        }
+        .b {
+                width: auto;
+                height: auto;
+                grid-column: 1 / 2;
+                grid-row: row 2;
+        }
+        .c {
+                width: 25%;
+                grid-column:  1 ;
+                grid-row: row 3 ;
+                float: left;
+        }
+        .d {
+                width: 25%;
+                grid-column: 2;
+                grid-row: row 3;
+                float:right;
+        }
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
