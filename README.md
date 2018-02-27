@@ -1,7 +1,7 @@
-# deli-very
-This skeleton code gives a folder structure and a basic communication pattern to quickly build prototypes of real-time apps. 
+# very-taxi-skeleton
+This skeleton code gives a folder structure and some basic communication patterns to quickly build prototypes of real-time map-based apps.
 
-With only fundamental pattern matching abilities and basic HTML/CSS/JS knowledge you will be able to create functional prototypes of web apps. The skeleton code makes use of the modules/frameworks [express js](https://expressjs.com), [socket.io](http://socket.io), and [vue js](https://vuejs.org/) but for prototyping purposes you will most likely not need to understand these libraries very well.
+With only fundamental pattern matching abilities and basic HTML/CSS/JS knowledge you will be able to create functional prototypes of taxi services. The skeleton code makes use of the modules/frameworks [express js](https://expressjs.com), [socket.io](http://socket.io), [vue js](https://vuejs.org/), [leaflet js](http://leafletjs.com/), and [esri leaflet geocoder](https://github.com/Esri/esri-leaflet-geocoder) but for prototyping purposes you will most likely not need to understand these libraries very well.
 
 Do not use this skeleton code for creating production apps. Security and stability have not been considered.
 
