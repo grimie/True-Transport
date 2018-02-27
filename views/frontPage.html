@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Model</title>
+        <link rel="stylesheet" href="C:/Users/Christoffer/Documents/TrueTransport/css/style.css">
+        <script src="C:/Users/Christoffer/Documents/TrueTransport/javascript/main.js" defer> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+                jQuery(function($){
+                $('#getCar').load('getacar.html #welcomeID');
+                        });
+        </script>
+</head>
+<body>
+        <div class="header">
+                        <h3>Welcome to TrueTransport!</h3>
+        </div>
+                <div class="box a" id="boxA">
+                        <div class="imgcontainer-FP">
+                                <img src="C:/Users/Christoffer/Documents/TrueTransport/images/taxi2.png" width="150px" alt="login picture" class="avatar">
+                        </div>
+                </div>
+                <div class="box b" id="boxB">
+                        <div class="container" >
+                                <button id="modalButton" class="button-shadow" onclick="openLoginModal()">Login</button>
+                        </div>
+                </div>
+                <div class="box c" id="boxC">
+                        <div class="container">
+                                <button id="modalBtn2" class="button-shadow" onclick="openAccountModal()">Create user</button>
+                        </div>
+                </div>
+                <div class="box d" id="boxD">
+                        <div class="container">
+                                <button class="button-shadow" type="submit">Contact us</button>
+                        </div>
+                </div>
+
+        <div class="modal-footer">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-snapchat-ghost"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-reddit"></a>
+
+        </div>
+
+        <div id="login-modal" class="modal">
+                <div class="modal-content">
+                        <div class="wrapper">
+                                <div class="modal-header">
+                                        <span class="closeButton" onclick="closeLoginModal()">&times;</span>
+                                                <h3>Login</h3>
+                                </div>
+                                <div class="imgcontainer">
+                                        <img src="C:/Users/Christoffer/Documents/TrueTransport/images/loginpic.png" width="250px" alt="login picture" class="avatar-pic">
+                                </div>
+                                <div class="container">
+                                        <label  for="username"><b>Username</b></label>
+                                        <input id="username" type="text" placeholder="Enter Username" name="uname" required>
+
+                                        <label for="password"><b>Password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="password" required>
+                                        <div id="getCar">
+                                                <a id="nextpage" href="getacar.html" onclick="fillUserArray();pushArray()">Login</a></br></br>
+                                                 <label>
+                                                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                                                </label>
+                                        </div>
+                                        <label>
+                                        <p><a href="">Forgot your password?</a>
+                                        </label>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div id="create-account-modal" class="modal">
+                <div class="modal-content">
+                        <div class="wrapper">
+                                <div class="modal-header">
+                                        <span class="closeButton" onclick="closeAccountModal()">&times;</span>
+                                        <h3>Create account</h3>
+                                </div>
+                                <div class="container">
+                                        <label for="username"><b>Choose an username</b></label>
+                                        <input type="text" placeholder="Enter Username" name="username" required>
+
+                                        <label for="password"><b>Password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="password" required>
+                                        <label for="password"><b>Confirm password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="password" required>
+
+                                        <button type="submit">Submit</button>
+                                        <label>
+                                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                                        </label>
+                                        <label>
+                                                <p><a href="">Forgot your password?</a>
+                                        </label>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</body>
+</html>
