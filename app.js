@@ -36,9 +36,6 @@ app.get('/dispatcher', function (req, res) {
   res.sendFile(path.join(__dirname, 'views/dispatcher.html'));
 });
 
-app.get('/customer', function (req, res) {
-  res.sendFile(path.join(_dirname, 'views/customer.html'));
-});
 
 // Store data in an object to keep the global namespace clean and
 // prepare for multiple instances of data if necessary
