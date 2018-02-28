@@ -66,7 +66,7 @@
                                         <label for="password"><b>Password</b></label>
                                         <input type="password" placeholder="Enter Password" name="password" required>
                                         <div id="getCar">
-                                                <button id="profile" type="submit" onclick="openGetACarModal();fillUserArray();pushArray();">Your  Login</button>
+                                                <button id="profile" type="submit" onclick="openGetACarModal();fillUserArray();pushArray();">Login</button>
 
                                                  <label>
                                                         <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -158,10 +158,13 @@
 
 
                                 <div class="container">
-                                        <button type="button" name="button" id="mapButton">Chose from a map</button>
+                                        <button type="button" name="button" id="mapButton" onclick="openMapModal();">Choose from a map</button>
                                 </div>
                                 <div class="container">
                                         <button type="button" onclick="openModal3();printFunc()"> Submit </button>
+                                </div>
+                                <div class="container">
+                                        Your order number is {{ orderId }}
                                 </div>
                                 </div>
                         </div>
@@ -181,6 +184,22 @@
                                         </div>
                                  </div>
                         </div>
+                </div>
+                <div id="map-modal" class="modal">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                        <span class="closeButton" onclick="closeMapModal()">&times;</span>
+                                        <h3>Choose your destination</h3>
+                                </div>
+
+                        <div id="page">
+                          <div id="my-map"></div>
+                          <div class="container">
+                          <button v-on:click="orderTaxi"onclick="closeMapModal();">ORDER TAXI</button>
+                          Your order number is {{ orderId }}
+                        </div>
+                        </div>
+                </div>
                 </div>
 </body>
 </html>
