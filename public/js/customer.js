@@ -1,113 +1,6 @@
 /*jslint es5:true, indent: 2 */
 /*global Vue, io */
 /* exported vm */
-var modal = document.getElementById("login-modal");
-
-window.addEventListener("click", clickOutside);
-
-function openLoginModal(){
-        modal.style.display = "block";
-}
-
-var carModal = document.getElementById("getAcar-modal");
-
-function openGetACarModal(){
-        carModal.style.display = "block";
-}
-function closeGetACarModal(){
-        carModal.style.display = "none";
-}
-
-var travelModal = document.getElementById("travel-modal");
-function openTravelModal(){
-        travelModal.style.display = "block";
-}
-function closeTravelModal(){
-        travelModal.style.display = "none";
-}
-
-function closeLoginModal(){
-        modal.style.display = "none";
-}
-
-function clickOutside(even){
-        if(even.target == modal){
-        modal.style.display = "none";
-        }
-}
-
-var modal2 = document.getElementById("create-account-modal");
-
-function openAccountModal(){
-        modal2.style.display = "block";
-}
-
-function closeAccountModal(){
-        modal2.style.display = "none";
-}
-
-function clickOutside2(even){
-        if(even.target == modal2){
-        modal2.style.display = "none";
-        }
-}
-
-
-var modal3 = document.getElementById("simpleModal3");
-
-function openModal3(){
-        modal3.style.display = "block";
-}
-
-function closeModal3(){
-        modal3.style.display = "none";
-}
-
-function clickOutside3(even){
-        if(even.target == modal){
-        modal3.style.display = "none";
-        }
-}
-
-window.userArray = new Array();
-
-function pushArray(){
-        var thing = document.getElementById('username').value;
-        userArray.push(thing);
-}
-function loadUserName(){
-        var node = document.createElement("h2");
-        var usernm = userArray[0];
-        console.log(userArray[0])
-        var thing = document.createTextNode(usernm);
-        var welcome = document.createTextNode("Welcome ");
-        node.appendChild(welcome);
-        node.appendChild(thing);
-        document.getElementById("welcomeID").appendChild(node);
-}
-function getUserName(array){
-        var node = document.createElement("h2");
-        var welcome = document.createTextNode("Welcome ");
-        var usernm = array[0];
-        var thing = document.createTextNode(usernm);
-        console.log(usernm);
-        console.log(thing);
-        console.log(welcome);
-        node.appendChild(welcome);
-        node.appendChild(thing);
-        console.log(node);
-        document.getElementById("welcomeID").appendChild(node);
-}
-function fillUserArray(){
-        userArray.push(document.getElementById('username').value);
-        getUserName(userArray);
-}
-
-
-function twofunctions(){
-        openLoginModal();
-        getUserName();
-}
 'use strict';
 var socket = io();
 
@@ -221,3 +114,115 @@ var vm = new Vue({
     }
   }
 });
+var modal = document.getElementById("login-modal");
+
+window.addEventListener("click", clickOutside);
+
+function openLoginModal(){
+        modal.style.display = "block";
+}
+var mapModal = document.getElementById("map-modal");
+function openMapModal(){
+        mapModal.style.display = "block";
+}
+function closeMapModal(){
+        mapModal.style.display = "none";
+}
+var carModal = document.getElementById("getAcar-modal");
+
+function openGetACarModal(){
+        carModal.style.display = "block";
+}
+function closeGetACarModal(){
+        carModal.style.display = "none";
+}
+
+var travelModal = document.getElementById("travel-modal");
+function openTravelModal(){
+        travelModal.style.display = "block";
+}
+function closeTravelModal(){
+        travelModal.style.display = "none";
+}
+
+function closeLoginModal(){
+        modal.style.display = "none";
+}
+
+function clickOutside(even){
+        if(even.target == modal){
+        modal.style.display = "none";
+        }
+}
+
+var modal2 = document.getElementById("create-account-modal");
+
+function openAccountModal(){
+        modal2.style.display = "block";
+}
+
+function closeAccountModal(){
+        modal2.style.display = "none";
+}
+
+function clickOutside2(even){
+        if(even.target == modal2){
+        modal2.style.display = "none";
+        }
+}
+
+
+var modal3 = document.getElementById("simpleModal3");
+
+function openModal3(){
+        modal3.style.display = "block";
+}
+
+function closeModal3(){
+        modal3.style.display = "none";
+}
+
+function clickOutside3(even){
+        if(even.target == modal){
+        modal3.style.display = "none";
+        }
+}
+
+window.userArray = new Array();
+
+function pushArray(){
+        var thing = document.getElementById('username').value;
+        userArray.push(thing);
+}
+function loadUserName(){
+        var node = document.createElement("h2");
+        var usernm = userArray[0];
+        var thing = document.createTextNode(usernm);
+        var welcome = document.createTextNode("Welcome ");
+        node.appendChild(welcome);
+        node.appendChild(thing);
+        document.getElementById("welcomeID").appendChild(node);
+}
+function getUserName(array){
+        var node = document.createElement("h2");
+        var welcome = document.createTextNode("Welcome ");
+        var usernm = array[0];
+        var thing = document.createTextNode(usernm);
+        console.log(usernm);
+        console.log(thing);
+        console.log(welcome);
+        node.appendChild(welcome);
+        node.appendChild(thing);
+        console.log(node);
+        document.getElementById("welcomeID").appendChild(node);
+}
+function fillUserArray(){
+        userArray.push(document.getElementById('username').value);
+        getUserName(userArray);
+}
+
+
+function twofunctions(){
+        openLoginModal();
+        getUserName();
+}
