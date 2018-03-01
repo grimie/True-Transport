@@ -188,6 +188,22 @@ function clickOutside3(even){
         }
 }
 
+//------
+
+var contactmodal = document.getElementById("contact-modal");
+
+function opencontactmodal(){
+        contactmodal.style.display = "block";
+}
+
+//------
+
+
+function closecontactmodal(){
+        contactmodal.style.display = "none";
+}
+
+
 window.userArray = new Array();
 
 function pushArray(){
