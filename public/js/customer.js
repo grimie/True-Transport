@@ -196,12 +196,23 @@ function opencontactmodal(){
         contactmodal.style.display = "block";
 }
 
-//------
-
-
 function closecontactmodal(){
         contactmodal.style.display = "none";
 }
+
+//------
+
+var disabledModal = document.getElementById("disabled-modal");
+
+function openDisabledModal(){
+        disabledModal.style.display = "block";
+}
+
+function closeDisabledModal(){
+        disabledModal.style.display = "none";
+}
+
+
 
 
 window.userArray = new Array();
