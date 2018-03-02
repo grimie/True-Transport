@@ -124,6 +124,8 @@ function openLoginModal(){
 var mapModal = document.getElementById("map-modal");
 function openMapModal(){
         mapModal.style.display = "block";
+        vm.map.invalidateSize();
+        
 }
 function closeMapModal(){
         mapModal.style.display = "none";
@@ -187,22 +189,6 @@ function clickOutside3(even){
         modal3.style.display = "none";
         }
 }
-
-//------
-
-var contactmodal = document.getElementById("contact-modal");
-
-function opencontactmodal(){
-        contactmodal.style.display = "block";
-}
-
-//------
-
-
-function closecontactmodal(){
-        contactmodal.style.display = "none";
-}
-
 
 window.userArray = new Array();
 
