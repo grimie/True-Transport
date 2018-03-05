@@ -19,16 +19,40 @@
   <div class="header">
     <h3>Welcome to TrueTransport!</h3>
   </div>
+
   <div class="box a" id="boxA">
     <div class="imgcontainer-FP">
       <img src="img/taxi2.png" width="150px" alt="login picture" class="avatar">
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="box b" id="boxB">
     <div class="container" >
       <button id="modalButton" class="button-shadow" onclick="openLoginModal()">Login</button>
     </div>
   </div>
+  <!--
+  DISABLED PICTURE BUTTON ALTERNATIVE
+  -->
+<div>
+    <img class="PicDis" src="img/handicapped.jpg" alt="login picture" onclick="openDisabledModal()">
+</div>
+
+  <!--
+  DISABLED PICTURE BUTTON ALTERNATIVE END
+  -->
+
   <div class="box c" id="boxC">
     <div class="container">
       <button id="modalBtn2" class="button-shadow" onclick="openAccountModal()">Create user</button>
@@ -70,12 +94,40 @@
   </div>
 </div>
 
+
+
+<div id="disabled-modal" class="modal">
+  <div class="modal-content">
+    <div class="wrapper">
+      <div class="modal-header">
+        <span class="closeButton" onclick="closeDisabledModal()">&times;</span>
+        <h3>Right now special needs require booking by telephone, or e-mail</h3>
+
+      </div>
+      <div class="container">
+        <div class="disabledSymbol">
+        <img src="img/handicapped.jpg" width="10p">
+        </div>
+        <label  for="Telephone"><b>Telephone: 123-432-234</b></label><br>
+
+        <label for="password"><b>Adress: Lägerhyddsvägen 2 Uppsala</b></label><br>
+
+        <label>
+          <a href = "mailto:grim.mostrom@blabla.se"
+          onclick = "this.href=this.href
+          .replace(/AT/,'&#64;')
+          .replace(/DOT/,'&#46;')"
+          >E-mail us</a><br>
+        </label>
+      </div>
+
+    </div>
+  </div>
+</div>
 <!--
 END OF CONTRIBUTION
 
 -->
-
-
 
 
 
@@ -157,12 +209,22 @@ END OF CONTRIBUTION
               <div class="grid-item-1">
 
               </div>
+
+
+
+
+
               <div class="grid-item-2">
                 <button id="getAcar"type="submit" onclick="openTravelModal();">Get a car!</button>
+
+
+
               </div>
+
               <div class="grid-item-3">
                 <button id="profile" type="submit">Your  profile</button>
               </div>
+
             </div>
           </div>
         </div>
