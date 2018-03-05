@@ -1,24 +1,31 @@
 body {
-	margin: 0;
-	padding: 0;
+        margin: 0;
+        padding: 0;
         font-family: Arial, helvetica, sans-serif;
         font-size: 17px;
         line-height: 1.6;
+        width: 100%;
+        height: 100%;
+        background: #929AA7;
+        overflow-x: hidden;
 }
 
-
 #my-map {
-	width: 100%;
-	height: 50vh;
-	border: 1px solid rgba(0,0,0,0.4);
-	margin: 1em auto;
+        width: 100%;
+        height: 50vh;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        margin: 1em auto;
+}
+
+h3 {
+        text-align: center;
 }
 
 .popup-list {
-	padding-left: 0;
+        padding-left: 0;
 }
 
-.modal{
+.modal {
         display: none;
         position: fixed;
         z-index: 1;
@@ -27,71 +34,77 @@ body {
         height: 100%;
         width: 100%;
         overflow: auto;
-        background-color: rgba(0,0,0,0.3);
+        background-color: rgba(0, 0, 0, 0.3);
 }
-.container{
+
+.container {
         padding: 15px;
 }
-.modal-content{
+
+.modal-content {
         background-color: #f4f4f4;
-        margin: 5% auto;
+        margin: 13% auto;
         width: 70%;
-        box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
         animation-name: modalOpen;
         animation-duration: 0.3s;
 }
-.hidden-modal-content{
+
+.hidden-modal-content {
         background-color: #f4f4f4;
-        margin:0;
+        margin: 0;
         width: 100%;
-	height: 100%;
-        box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+        height: 100%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
         animation-name: modalOpen;
         animation-duration: 0s;
 }
-.closeButton{
+
+.closeButton {
         float: right;
         font-size: 30px;
         color: white;
 }
-.closeButton:hover, .closeButton:focus{
+
+.closeButton:hover, .closeButton:focus {
         color: black;
         text-decoration: none;
         cursor: pointer;
 }
 
 form {
-    border: 3px solid #f1f1f1;
-    align-items: center;
-    width: 100%;
+        border: 3px solid #f1f1f1;
+        align-items: center;
+        width: 100%;
 }
 
 input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
 }
 
-.avatar-pic{
+.avatar-pic {
         width: 40%;
         border-radius: 50%;
 }
 
 .button-shadow {
-    background-color: #4E5D73;
-    color: white;
-    padding: 2%;
-    margin: 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
-    border-radius: 8px;
+        background-color: #4E5D73;
+        color: white;
+        padding: 2%;
+        margin: 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 8px;
 }
-button{
+
+button {
         background-color: #4E5D73;
         color: white;
         padding: 2%;
@@ -101,152 +114,149 @@ button{
         width: 100%;
 }
 
-.PicDis{
+.PicDis {
         float: right;
         color: white;
-        padding: 0%;
-        margin: 0;
+        padding: 4%;
+        margin: 0 auto;
         border-radius: 50%;
         cursor: pointer;
-        width: 30px;
+        width: 80px;
 }
 
-
-.disabledSymbol{
-  border-radius: 50%;
+.disabledSymbol {
+        border-radius: 50%;
 }
 
- #nextpage {
-    background-color: #4E5D73;
-    color: white;
-    padding: 14px 20px;
-    border: none;
-    cursor: pointer;
-    width: auto;
-    margin-top: 15px;
-    display: block;
-    text-align: center;
-    text-decoration: none;
+#nextpage {
+        background-color: #4E5D73;
+        color: white;
+        padding: 14px 20px;
+        border: none;
+        cursor: pointer;
+        width: auto;
+        margin-top: 15px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
 }
-.container a:hover{
+
+.container a:hover {
         opacity: 0.8;
 }
 
 span.psw {
-    float: right;
-    padding-top: 16px;
+        float: right;
+        padding-top: 16px;
 }
 
 button:hover {
-    opacity: 0.8;
+        opacity: 0.8;
 }
 
 .imgcontainer-FP {
-    text-align: center;
-    margin: 0;
-    height: 20em;
-    background: url("https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
-    padding: 1em;
-    width: 100%
+        text-align: center;
+        margin: 0;
+        height: 15em;
+        background: url("https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb");
+        padding: 1em 0;
+        width: 100%
 }
 
 .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
+        text-align: center;
+        margin: 24px 0 12px 0;
 }
-
 
 img.avatar {
-    width: 20em;
-    border-radius: 50%;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        width: 15em;
+        border-radius: 50%;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-.container{
+.container {
         width: auto;
 }
 
 @keyframes modalOpen {
-        from{opacity: 0}
-        to {opacity: 1}
-
+        from {
+                opacity: 0
+        }
+        to {
+                opacity: 1
+        }
 }
 
-.header{
-        background:  #4E5D73;
+.header {
+        background: #4E5D73;
         color: white;
         margin: 0;
         width: 100%;
-        padding: 15px;
-
+        padding: 15px 0;
 }
 
-.modal-header{
-        background:  #4E5D73;
+.modal-header {
+        background: #4E5D73;
         color: white;
         margin: 0;
         padding: 15px;
 }
 
-.modal-footer{
-        background:  #4E5D73;
+.modal-footer {
+        background: #4E5D73;
         color: white;
         margin: 0;
         width: 100%;
-        padding: 15px;
+        padding: 15px 0;
         margin-top: 7%;
+        bottom: 0;
+        position: absolute;
 }
 
-body {
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    background: #929AA7;
-}
+.social-network {}
 
 .fa-reddit {
-  background: #ff5700;
-  color: white;
+        background: #ff5700;
+        color: white;
 }
+
 .fa-snapchat-ghost {
-  background: #fffc00;
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        background: #fffc00;
+        color: white;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
 .fa-instagram {
-  background: #125688;
-  color: white;
+        background: #125688;
+        color: white;
 }
+
 .fa-facebook {
-  background: #3B5998;
-  color: white;
+        background: #3B5998;
+        color: white;
 }
+
 .fa-twitter {
-  background: #55ACEE;
-  color: white;
+        background: #55ACEE;
+        color: white;
 }
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
+
 .fa {
-  padding: 10px;
-  font-size: 15px;
-  width: 15px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-  border: 2px solid white;
+        padding: 10px;
+        font-size: 15px;
+        width: 15px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+        border: 2px solid white;
 }
 
 .fa:hover {
-    opacity: 0.7;
+        opacity: 0.7;
 }
 
-.hidden-modal{
+.hidden-modal {
         display: none;
         position: fixed;
         z-index: 1;
@@ -256,6 +266,12 @@ body {
         width: 100%;
         overflow: auto;
 }
+
+.disabled {
+        padding: 4px;
+        margin: 10px auto;
+}
+
 #logout {
         background-color: #73644e;
         color: white;
@@ -268,208 +284,208 @@ body {
         border-radius: 5px;
         display: block;
         text-decoration: none;
-
         /*box-shadow:2.5px 5px rgba(0,0,0,0.2);*/
-      }
-      #logout:hover{
-              opacity: 0.8;
-      }
-
-
-      #getAcar{
-              margin: 5% auto;
-              width: 100%;
-              height: 10em;
-              border-radius: 5px;
-      }
-      .getACar-header{
-              background-color: #4E5D73;
-              color: white;
-              padding: 20px;
-              margin-right: : 20px;
-              border: none;
-              width: auto;
-      }
-
-
-      .travel-header{
-              background:  #4E5D73;
-              color: white;
-              margin: 0;
-              padding: 15px;
-      }
-
-      #time, #date{
-              background:  #4E5D73;
-              color: white;
-              margin: 0;
-              padding: 5px;
-	     margin-bottom: 1em;
-      }
-
-
-
-      #goBack{
-	      background-color: #73644e;
-              color: white;
-              padding: 14px 20px;
-              margin: 8px 0;
-              border: black 2px;
-              cursor: pointer;
-              width: auto;
-              float: right;
-              border-radius: 5px;
-              display: block;
-              text-decoration: none;
-
-      }
-
-      #goBack:hover{
-	      opacity: 0.8;
-      }
-
-      #submitButton{
-	margin-top: 1em;
-      }
-
-      #mapButton{
-	      background: url(../img/polacks.jpg);
-	      color: black;
-	      border: solid black 2px;
-      }
-
-
-.currentDrives, .pendingDrives{
-	padding: 15px;
 }
 
-.inlineBoxes{
-	background-color: #333;
-	width: 100%;
-	height: 75px;
-	margin: 0;
-	color: white;
-	text-align: center;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	left: 0;
-	top: 0;
+#logout:hover {
+        opacity: 0.8;
 }
 
-.driverContainer{
-	display: inline-block;
-	background: #4E5D73;
-	margin-top: 1%;
-	padding: 0;
-	width: 49.6%;
+#getAcar {
+        margin: 5% auto;
+        width: 100%;
+        height: 10em;
+        border-radius: 5px;
 }
 
-.cont{
-	vertical-align:top;
-	display: inline-block;
-	width:49%;
-	background: #4E5D73;
-	margin: 0;
-	padding: 0;
-
+.getACar-header {
+        background-color: #4E5D73;
+        color: white;
+        padding: 20px;
+        margin-right: : 20px;
+        border: none;
+        width: auto;
 }
 
-.contHeader{
-	text-align: center;
-	background:  #333;
+.travel-header {
+        background: #4E5D73;
         color: white;
         margin: 0;
         padding: 15px;
 }
 
-.contBox{
-	padding: 0;
-	width: 100%;
-	margin: 0;
-	color: white;
-	height: auto;
-	border-bottom: solid black 1px;
-	border-left: solid black 1px;
-	border-right: solid black 1px;
-
-}
-.contBox:first-child, .contBox:nth-child(2n){
-	background: #3e4a5b;
+#time, #date {
+        background: #4E5D73;
+        color: white;
+        margin: 0;
+        padding: 5px;
+        margin-bottom: 1em;
 }
 
-.fullContainer{
-	display: inline-block;
-	padding: 1%;
-	width: 100%;
-	margin: 0;
-}
-#quitButton{
-	background-color: #4E5D73;
-	color: white;
-	padding: 2%;
-	margin: 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
-	border-radius: 8px;
+#goBack {
+        background-color: #73644e;
+        color: white;
+        padding: 20px 20px;
+        margin: 8px 0;
+        border: black 2px;
+        cursor: pointer;
+        width: auto;
+        float: right;
+        border-radius: 5px;
+        display: block;
+        text-decoration: none;
 }
 
-.acceptButton{
-	display: inline-block;
-	right: 0;
-	background: green;
-	text-align: center;
-	width: 94%;
-	margin: 0;
-	margin-right: 2%;
-	margin-left: 2%;
-	height: auto;
-	padding: auto;
+#goBack:hover {
+        opacity: 0.8;
 }
-.finishButton{
-	display: inline-block;
-	right: 0;
-	background: red;
-	text-align: center;
-	width: 94%;
-	margin: 0;
-	margin-right: 2%;
-	margin-left: 2%;
-	height: auto;
-	padding: auto;
+
+#submitButton {
+        margin-top: 1em;
 }
+
+#mapButton {
+        background: url(../img/polacks.jpg);
+        color: black;
+        border: solid black 2px;
+}
+
+.currentDrives, .pendingDrives {
+        padding: 15px;
+}
+
+.inlineBoxes {
+        background-color: #333;
+        width: 100%;
+        height: 75px;
+        margin: 0;
+        color: white;
+        text-align: center;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        left: 0;
+        top: 0;
+}
+
+.driverContainer {
+        display: inline-block;
+        background: #4E5D73;
+        margin-top: 1%;
+        padding: 0;
+        width: 49.6%;
+}
+
+.cont {
+        vertical-align: top;
+        display: inline-block;
+        width: 49%;
+        background: #4E5D73;
+        margin: 0;
+        padding: 0;
+}
+
+.contHeader {
+        text-align: center;
+        background: #333;
+        color: white;
+        margin: 0;
+        padding: 15px;
+}
+
+.contBox {
+        padding: 0;
+        width: 100%;
+        margin: 0;
+        color: white;
+        height: auto;
+        border-bottom: solid black 1px;
+        border-left: solid black 1px;
+        border-right: solid black 1px;
+}
+
+.contBox:first-child, .contBox:nth-child(2n) {
+        background: #3e4a5b;
+}
+
+.fullContainer {
+        display: inline-block;
+        padding: 1%;
+        width: 100%;
+        margin: 0;
+}
+
+#quitButton {
+        background-color: #4E5D73;
+        color: white;
+        padding: 2%;
+        margin: 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 8px;
+}
+
+.acceptButton {
+        display: inline-block;
+        right: 0;
+        background: green;
+        text-align: center;
+        width: 94%;
+        margin: 0;
+        margin-right: 2%;
+        margin-left: 2%;
+        height: auto;
+        padding: auto;
+}
+
+.finishButton {
+        display: inline-block;
+        right: 0;
+        background: red;
+        text-align: center;
+        width: 94%;
+        margin: 0;
+        margin-right: 2%;
+        margin-left: 2%;
+        height: auto;
+        padding: auto;
+}
+
 ul {
- 	margin: 0;
-  	padding: 0;
-	width: 100%;
-	overflow: hidden;
-}
-ul li {
-  color: black;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 12px 8px 10px 1%;
-  list-style-type: none;
-  background: #eee;
-  font-size: 18px;
-  transition: 0.2s;
-   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-#myUL{
-	width: auto;
-	overflow: auto;
-}
-ul li:nth-child(odd) {
-  background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
 }
 
-ul div{
-	width: 100%;
-	margin: 0;
-	padding: 0;
+ul li {
+        color: black;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 12px 8px 10px 1%;
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+        transition: 0.2s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+
+#myUL {
+        width: auto;
+        overflow: auto;
+}
+
+ul li:nth-child(odd) {
+        background: #f9f9f9;
+}
+
+ul div {
+        width: 100%;
+        margin: 0;
+        padding: 0;
 }
