@@ -4,16 +4,24 @@
 'use strict';
 var socket = io();
 
+
 var vm = new Vue({
   el: '#page',
+  el: '.app',
   data: {
+    placeQuery: "",
+    placeQueryResult: null,
     orderId: null,
     map: null,
     fromMarker: null,
     destMarker: null,
+    HTMLcontent: null,
+    contentForm:[],
+    adressForm: [],
     taxiMarkers: {}
   },
   created: function () {
+
     socket.on('initialize', function (data) {
       // add taxi markers in the map for all taxis
       for (var taxiId in data.taxis) {
@@ -36,6 +44,9 @@ var vm = new Vue({
       Vue.delete(this.taxiMarkers, taxiId);
     }.bind(this));
 
+
+
+
     // These icons are not reactive
     this.taxiIcon = L.icon({
       iconUrl: "img/taxi.png",
@@ -50,9 +61,12 @@ var vm = new Vue({
           iconAnchor: [19,50]
         });
   },
+
   mounted: function () {
+          var pos = L.GeoIP.getPosition();
+          console.log(pos);
     // set up the map
-    this.map = L.map('my-map').setView([59.8415,17.648], 13);
+    this.map = L.map('my-map').setView(pos, 13);
 
     // create the tile layer with correct attribution
     var osmUrl='http://{s}.tile.osm.org/{z}/{x}/{y}.png';
@@ -63,9 +77,23 @@ var vm = new Vue({
     }).addTo(this.map);
     this.map.on('click', this.handleClick);
 
-    var searchDestControl = L.esri.Geocoding.geosearch({allowMultipleResults: false, zoomToResult: false, placeholder: "Destination"}).addTo(this.map);
-    var searchFromControl = L.esri.Geocoding.geosearch({allowMultipleResults: false, zoomToResult: false, placeholder: "From"});
+
+
     // listen for the results event and add the result to the map
+    var searchDestControl = L.esri.Geocoding.geosearch({
+            allowMultipleResults: false,
+            zoomToResult: false,
+            autoComplete: true,
+            autoCompleteDelay: 100,
+            placeholder: "Destination"
+    }).addTo(this.map);
+    var searchFromControl = L.esri.Geocoding.geosearch({
+            allowMultipleResults: false,
+            zoomToResult: false,
+            autoCompleteDelay: 100,
+            placeholder: "From"
+    });
+
     searchDestControl.on("results", function(data) {
         this.destMarker = L.marker(data.latlng, {draggable: true}).addTo(this.map);
         this.destMarker.on("drag", this.moveMarker);
@@ -78,6 +106,19 @@ var vm = new Vue({
         this.fromMarker.on("drag", this.moveMarker);
         this.connectMarkers = L.polyline([this.fromMarker.getLatLng(), this.destMarker.getLatLng()], {color: 'blue'}).addTo(this.map);
     }.bind(this));
+
+    var control = L.Routing.control({
+  waypoints: [
+    L.latLng(this.fromMarker),
+    L.latLng(this.destMarker)
+  ],
+  router: new L.Routing.osrmv1({
+    language: 'en',
+    profile: 'car'
+  }),
+  geocoder: L.Control.Geocoder.nominatim({})
+}).addTo(this.map);
+
   },
   methods: {
     putTaxiMarker: function (taxi) {
@@ -86,6 +127,20 @@ var vm = new Vue({
       marker.taxiId = taxi.taxiId;
       return marker;
     },
+
+putMarker: function (latLng) {
+  L.marker(latLng).addTo(this.map);
+},
+    getFormValues () {
+            this.adressForm.push(this.$refs.fromAddress.value);
+            this.adressForm.push(this.$refs.toAddress.value);
+            this.adressForm.push(this.$refs.date.value);
+            this.adressForm.push(this.$refs.time.value);
+            this.contentForm.push("From adress: ");
+            this.contentForm.push("To adress: ");
+            this.contentForm.push("Leaving date: ");
+            this.contentForm.push("At: ");
+        },
     orderTaxi: function() {
             socket.emit("orderTaxi", { fromLatLong: [this.fromMarker.getLatLng().lat, this.fromMarker.getLatLng().lng],
                                        destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
@@ -114,6 +169,9 @@ var vm = new Vue({
     }
   }
 });
+
+
+
 var modal = document.getElementById("login-modal");
 
 window.addEventListener("click", clickOutside);
@@ -125,7 +183,7 @@ var mapModal = document.getElementById("map-modal");
 function openMapModal(){
         mapModal.style.display = "block";
         vm.map.invalidateSize();
-        
+
 }
 function closeMapModal(){
         mapModal.style.display = "none";
@@ -189,33 +247,6 @@ function clickOutside3(even){
         modal3.style.display = "none";
         }
 }
-
-
-//------
-
-var contactmodal = document.getElementById("contact-modal");
-
-function opencontactmodal(){
-        contactmodal.style.display = "block";
-}
-
-function closecontactmodal(){
-        contactmodal.style.display = "none";
-}
-
-//------
-
-var disabledModal = document.getElementById("disabled-modal");
-
-function openDisabledModal(){
-        disabledModal.style.display = "block";
-}
-
-function closeDisabledModal(){
-        disabledModal.style.display = "none";
-}
-
-
 
 window.userArray = new Array();
 
