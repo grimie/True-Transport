@@ -6,301 +6,215 @@
   <title>TAXI CUSTOMER</title>
   <link rel="stylesheet" href="leaflet/leaflet.css">
   <link rel="stylesheet" href="/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
+  <link rel="stylesheet" href="/leaflet-routing-machine/leaflet-routing-machine.css">
+
   <link rel="stylesheet" href="css/taxi.css">
   <script src="/vue/vue.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/leaflet/leaflet.js"></script>
   <script src="/esri-leaflet/esri-leaflet.js"></script>
   <script src="/esri-leaflet-geocoder/esri-leaflet-geocoder.js"></script>
+ <script src="/leaflet-routing-machine/leaflet-routing-machine.js"></script>
+ <script src="/leaflet-routing-machine/Control.Geocoder.js"></script>
+
+  <script src="/leaflet-geoip/leaflet-geoip.js"></script>
   <script src="js/customer.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="header">
-    <h3>Welcome to TrueTransport!</h3>
-  </div>
-
-  <div class="box a" id="boxA">
-    <div class="imgcontainer-FP">
-      <img src="img/taxi2.png" width="150px" alt="login picture" class="avatar">
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="box b" id="boxB">
-    <div class="container" >
-      <button id="modalButton" class="button-shadow" onclick="openLoginModal()">Login</button>
-    </div>
-  </div>
-  <!--
-  DISABLED PICTURE BUTTON ALTERNATIVE
-  -->
-<div>
-    <img class="PicDis" src="img/handicapped.jpg" alt="login picture" onclick="openDisabledModal()">
-</div>
-
-  <!--
-  DISABLED PICTURE BUTTON ALTERNATIVE END
-  -->
-
-  <div class="box c" id="boxC">
-    <div class="container">
-      <button id="modalBtn2" class="button-shadow" onclick="openAccountModal()">Create user</button>
-    </div>
-  </div>
-  <div class="box d" id="boxD">
-    <div class="container">
-      <button class="button-shadow" type="submit" onclick="opencontactmodal();">Contact us</button>
-    </div>
-  </div>
-
-  <!--
-  CONTACT US CONTRIBUTION
-
--->
-<div id="contact-modal" class="modal">
-  <div class="modal-content">
-    <div class="wrapper">
-      <div class="modal-header">
-        <span class="closeButton" onclick="closecontactmodal()">&times;</span>
-        <h3>Contact information</h3>
-
-      </div>
-      <div class="container">
-        <label  for="Telephone"><b>Telephone: 123-432-234</b></label><br>
-
-        <label for="password"><b>Adress: Lägerhyddsvägen 2 Uppsala</b></label><br>
-
-        <label>
-          <a href = "mailto:grim.mostrom@blabla.se"
-          onclick = "this.href=this.href
-          .replace(/AT/,'&#64;')
-          .replace(/DOT/,'&#46;')"
-          >E-mail us</a><br>
-        </label>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-<div id="disabled-modal" class="modal">
-  <div class="modal-content">
-    <div class="wrapper">
-      <div class="modal-header">
-        <span class="closeButton" onclick="closeDisabledModal()">&times;</span>
-        <h3>Right now special needs require booking by telephone, or e-mail</h3>
-
-      </div>
-      <div class="container">
-        <div class="disabledSymbol">
-        <img src="img/handicapped.jpg" width="10p">
+        <div class="header">
+                        <h3>Welcome to TrueTransport!</h3>
         </div>
-        <label  for="Telephone"><b>Telephone: 123-432-234</b></label><br>
+                <div class="box a" id="boxA">
+                        <div class="imgcontainer-FP">
+                                <img src="img/taxi2.png" width="150px" alt="login picture" class="avatar">
+                        </div>
+                </div>
+                <div class="box b" id="boxB">
+                        <div class="container" >
+                                <button id="modalButton" class="button-shadow" onclick="openLoginModal()">Login</button>
+                        </div>
+                </div>
+                <div class="box c" id="boxC">
+                        <div class="container">
+                                <button id="modalBtn2" class="button-shadow" onclick="openAccountModal()">Create user</button>
+                        </div>
+                </div>
+                <div class="box d" id="boxD">
+                        <div class="container">
+                                <button class="button-shadow" type="submit">Contact us</button>
+                        </div>
+                </div>
 
-        <label for="password"><b>Adress: Lägerhyddsvägen 2 Uppsala</b></label><br>
+        <div class="modal-footer">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-snapchat-ghost"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-reddit"></a>
 
-        <label>
-          <a href = "mailto:grim.mostrom@blabla.se"
-          onclick = "this.href=this.href
-          .replace(/AT/,'&#64;')
-          .replace(/DOT/,'&#46;')"
-          >E-mail us</a><br>
-        </label>
-      </div>
-
-    </div>
-  </div>
-</div>
-<!--
-END OF CONTRIBUTION
-
--->
-
-
-
-<div class="modal-footer">
-  <a href="#" class="fa fa-facebook"></a>
-  <a href="#" class="fa fa-twitter"></a>
-  <a href="#" class="fa fa-snapchat-ghost"></a>
-  <a href="#" class="fa fa-instagram"></a>
-  <a href="#" class="fa fa-reddit"></a>
-
-</div>
-
-<div id="login-modal" class="modal">
-  <div class="modal-content">
-    <div class="wrapper">
-      <div class="modal-header">
-        <span class="closeButton" onclick="closeLoginModal()">&times;</span>
-        <h3>Login</h3>
-      </div>
-      <div class="imgcontainer">
-        <img src="img/loginpic.png" width="250px" alt="login picture" class="avatar-pic">
-      </div>
-      <div class="container">
-        <label  for="username"><b>Username</b></label>
-        <input id="username" type="text" placeholder="Enter Username" name="uname" required>
-
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-        <div id="getCar">
-          <button id="profile" type="submit" onclick="openGetACarModal();fillUserArray();pushArray();">Login</button>
-
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-        <label>
-          <p><a href="">Forgot your password?</a>
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="create-account-modal" class="modal">
-    <div class="modal-content">
-      <div class="wrapper">
-        <div class="modal-header">
-          <span class="closeButton" onclick="closeAccountModal()">&times;</span>
-          <h3>Create account</h3>
-        </div>
-        <div class="container">
-          <label for="username"><b>Choose an username</b></label>
-          <input type="text" placeholder="Enter Username" name="username" required>
-
-          <label for="password"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
-          <label for="password"><b>Confirm password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
-
-          <button type="submit" onclick="loadUserName();">Submit</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-          <label>
-            <p><a href="">Forgot your password?</a>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="getAcar-modal" class="hidden-modal">
-      <div class="hidden-modal-content">
-        <div class="wrapper">
-          <div class="getACar-header">
-            <button id="logout" type="submit" onclick="closeGetACarModal();closeLoginModal();">Logout</button>
-            <div id="welcomeID"></div>
-          </div>
-          <div class="container">
-            <div class="grid-container">
-              <div class="grid-item-1">
-
-              </div>
-
-
-
-
-
-              <div class="grid-item-2">
-                <button id="getAcar"type="submit" onclick="openTravelModal();">Get a car!</button>
-
-
-
-              </div>
-
-              <div class="grid-item-3">
-                <button id="profile" type="submit">Your  profile</button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="travel-modal" class="hidden-modal">
-      <div class="hidden-modal-content">
-        <div id="travel" class="travel">
-          <div class="travel-content">
-            <div class="travel-header">
-              <button type="button" name="button" id="goBack" onclick="closeTravelModal();"> Go back</button>
-
-              <h3>Book your trip!</h3>
-            </div>
-            <div class="container">
-              <section id="booking">
-                <p>
-                  <label id="address" for="fromAddress" >From:</label>
-                  <input id="fromAddress" type="text" name="fn" maxlength='50' required="required" placeholder="e.g Flogstavägen 49, Uppsala">
-                </p>
-                <p>
-                  <label id="leaveAddress"for="toAddress">To:</label>
-                  <input id="toAddress" type="text" name="ln" maxlength='50' required="required" placeholder="e.g Arlanda Airport, Arlanda ">
-                </p>
-                <form >
-                  <label id="date" for="leaveDate"> Date: </label>
-                  <input id="leaveDate" type="date" required="required" </br>
-                </form>
-              </br> </br>
-              <label id="time" for="leaveTime"> Time: </label>
-              <input id="leaveTime" type="time" required="required" </br>
-
-
-              <div class="container">
-                <button type="button" name="button" id="mapButton" onclick="openMapModal();">Choose from a map</button>
-              </div>
-              <div class="container">
-                <button type="button" onclick="openModal3();printFunc()"> Submit </button>
-              </div>
-              <div class="container">
-                Your order number is {{ orderId }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="simpleModal3" class="modal">
-      <div class="modal-content">
-        <div class="travel-header">
-          <span class="closeButton" onclick="closeModal3()">&times;</span>
-          <h3>Confirmation</h3>
-        </div>
-        <div class="container">
-          <div id="display">
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="map-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="closeButton" onclick="closeMapModal()">&times;</span>
-          <h3>Choose your destination</h3>
         </div>
 
-        <div id="page">
-          <div id="my-map"></div>
-          <div class="container">
-            <button v-on:click="orderTaxi"onclick="closeMapModal();">ORDER TAXI</button>
-            Your order number is {{ orderId }}
-          </div>
+        <div id="login-modal" class="modal">
+                <div class="modal-content">
+                        <div class="wrapper">
+                                <div class="modal-header">
+                                        <span class="closeButton" onclick="closeLoginModal()">&times;</span>
+                                                <h3>Login</h3>
+                                </div>
+                                <div class="imgcontainer">
+                                        <img src="img/loginpic.png" width="250px" alt="login picture" class="avatar-pic">
+                                </div>
+                                <div class="container">
+                                        <label  for="username"><b>Username</b></label>
+                                        <input id="username" type="text" placeholder="Enter Username" name="uname" required>
+
+                                        <label for="password"><b>Password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="password" required>
+                                        <div id="getCar">
+                                                <button id="profile" type="submit" onclick="openGetACarModal();fillUserArray();pushArray();">Login</button>
+
+                                                 <label>
+                                                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                                                </label>
+                                        </div>
+                                        <label>
+                                        <p><a href="">Forgot your password?</a>
+                                        </label>
+                                </div>
+                        </div>
+                </div>
         </div>
-      </div>
-    </div>
-  </body>
-  </html>
+        <div id="create-account-modal" class="modal">
+                <div class="modal-content">
+                        <div class="wrapper">
+                                <div class="modal-header">
+                                        <span class="closeButton" onclick="closeAccountModal()">&times;</span>
+                                        <h3>Create account</h3>
+                                </div>
+                                <div class="container">
+                                        <label for="username"><b>Choose an username</b></label>
+                                        <input type="text" placeholder="Enter Username" name="username" required>
+
+                                        <label for="password"><b>Password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="password" required>
+                                        <label for="password"><b>Confirm password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="password" required>
+
+                                        <button type="submit" onclick="loadUserName();">Submit</button>
+                                        <label>
+                                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                                        </label>
+                                        <label>
+                                                <p><a href="">Forgot your password?</a>
+                                        </label>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div id="getAcar-modal" class="hidden-modal">
+                <div class="hidden-modal-content">
+                <div class="wrapper">
+                                <div class="getACar-header">
+                                <button id="logout" type="submit" onclick="closeGetACarModal();closeLoginModal();">Logout</button>
+                                <div id="welcomeID"></div>
+                        </div>
+                        <div class="container">
+                                <div class="grid-container">
+                                        <div class="grid-item-1">
+
+                                        </div>
+                                        <div class="grid-item-2">
+                                                <button id="getAcar"type="submit" onclick="openTravelModal();">Get a car!</button>
+                                        </div>
+                                        <div class="grid-item-3">
+                                                <button id="profile" type="submit">Your  profile</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                </div>
+        </div>
+
+        <div class="app">
+        <div id="travel-modal" class="hidden-modal">
+        <div class="hidden-modal-content">
+                <div id="travel" class="travel">
+                <div class="travel-content">
+                        <div class="travel-header">
+                                <button type="button" name="button" id="goBack" onclick="closeTravelModal();"> Go back</button>
+
+                               <h3>Book your trip!</h3>
+                        </div>
+                        <div class="container">
+                                <section id="booking">
+
+
+                                          <form>
+                                                <label>From:</label>
+                                                 <input  type="text" maxlength='50' required="required" placeholder="e.g Flogstavägen 49, Uppsala" ref="fromAddress">
+
+                                              <label>To:</label>
+                                              <input type="text" maxlength='50' required="required" placeholder="e.g Arlanda Airport, Arlanda " ref="toAddress">
+
+                                                <label> Date: </label>
+                                                <input  type="date" required="required" ref="date">
+
+                                                <label> Time: </label>
+                                                <input  type="time" required="required"  ref="time"></br>
+                                          </form>
+
+                                <div class="container">
+                                        <button type="button" name="button" id="mapButton" onclick="openMapModal();">Choose from a map</button>
+                                </div>
+                                <div class="container">
+                                        <button type="button"  v-on:click="getFormValues()" onclick="openModal3();"> Submit </button>
+                                </div>
+                                </div>
+                                </div>
+                        </div>
+                        Your order number is {{ orderId }}
+
+                </div>
+                </div>
+
+
+                <div id="simpleModal3" class="modal">
+                        <div class="modal-content">
+                                <div class="travel-header">
+                                        <span class="closeButton" onclick="closeModal3()">&times;</span>
+                                        <h3>Confirmation</h3>
+                                </div>
+                                <ul class="app">
+                                  <li v-for="(adress, index) in adressForm">
+                                    {{contentForm[index]}}{{ adress }}
+                                  </li>
+                                </ul>
+
+                                <div class="container">
+                                        <div id="display">
+
+                                        </div>
+                                 </div>
+                         </div>
+                        </div>
+
+                <div id="map-modal" class="modal">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                        <span class="closeButton" onclick="closeMapModal()">&times;</span>
+                                        <h3>Choose your destination</h3>
+                                </div>
+
+                        <div id="page">
+                          <div id="my-map"></div>
+                          <div class="container">
+                          <button v-on:click="orderTaxi()"onclick="closeMapModal();">ORDER TAXI</button>
+                        </div>
+                        </div>
+                </div>
+                </div>
+                </div>
+</body>
+</html>
