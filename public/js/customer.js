@@ -124,6 +124,8 @@ function openLoginModal(){
 var mapModal = document.getElementById("map-modal");
 function openMapModal(){
         mapModal.style.display = "block";
+        vm.map.invalidateSize();
+        
 }
 function closeMapModal(){
         mapModal.style.display = "none";
@@ -188,6 +190,7 @@ function clickOutside3(even){
         }
 }
 
+
 //------
 
 var contactmodal = document.getElementById("contact-modal");
@@ -211,7 +214,6 @@ function openDisabledModal(){
 function closeDisabledModal(){
         disabledModal.style.display = "none";
 }
-
 
 
 

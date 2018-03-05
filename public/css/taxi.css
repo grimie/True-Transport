@@ -337,3 +337,139 @@ body {
 	      color: black;
 	      border: solid black 2px;
       }
+
+
+.currentDrives, .pendingDrives{
+	padding: 15px;
+}
+
+.inlineBoxes{
+	background-color: #333;
+	width: 100%;
+	height: 75px;
+	margin: 0;
+	color: white;
+	text-align: center;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	left: 0;
+	top: 0;
+}
+
+.driverContainer{
+	display: inline-block;
+	background: #4E5D73;
+	margin-top: 1%;
+	padding: 0;
+	width: 49.6%;
+}
+
+.cont{
+	vertical-align:top;
+	display: inline-block;
+	width:49%;
+	background: #4E5D73;
+	margin: 0;
+	padding: 0;
+
+}
+
+.contHeader{
+	text-align: center;
+	background:  #333;
+        color: white;
+        margin: 0;
+        padding: 15px;
+}
+
+.contBox{
+	padding: 0;
+	width: 100%;
+	margin: 0;
+	color: white;
+	height: auto;
+	border-bottom: solid black 1px;
+	border-left: solid black 1px;
+	border-right: solid black 1px;
+
+}
+.contBox:first-child, .contBox:nth-child(2n){
+	background: #3e4a5b;
+}
+
+.fullContainer{
+	display: inline-block;
+	padding: 1%;
+	width: 100%;
+	margin: 0;
+}
+#quitButton{
+	background-color: #4E5D73;
+	color: white;
+	padding: 2%;
+	margin: 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+	border-radius: 8px;
+}
+
+.acceptButton{
+	display: inline-block;
+	right: 0;
+	background: green;
+	text-align: center;
+	width: 94%;
+	margin: 0;
+	margin-right: 2%;
+	margin-left: 2%;
+	height: auto;
+	padding: auto;
+}
+.finishButton{
+	display: inline-block;
+	right: 0;
+	background: red;
+	text-align: center;
+	width: 94%;
+	margin: 0;
+	margin-right: 2%;
+	margin-left: 2%;
+	height: auto;
+	padding: auto;
+}
+ul {
+ 	margin: 0;
+  	padding: 0;
+	width: 100%;
+	overflow: hidden;
+}
+ul li {
+  color: black;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 8px 10px 1%;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#myUL{
+	width: auto;
+	overflow: auto;
+}
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+ul div{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}

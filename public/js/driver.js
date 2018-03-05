@@ -1,6 +1,25 @@
 /*jslint es5:true, indent: 2 */
 /*global Vue, io */
 /* exported vm */
+
+function show(target) {
+    document.getElementById(target).style.display = 'block';
+}
+
+function hide(target) {
+    document.getElementById(target).style.display = 'none';
+}
+
+var currentDrives = document.getElementById("showBox");
+function showCurrentDrives(){
+        console.log("bajs");
+        currentDrives.style.display = "block";
+}
+var pendingDrives = document.getElementById("showBox2");
+function hidePendingDrives(){
+        console.log("bajs2");
+        pendingDrives.style.display = "none";
+}
 'use strict';
 var socket = io();
 
@@ -38,7 +57,7 @@ var vm = new Vue({
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min)) + min;
     }
-    // It's probably not a good idea to generate a random taxi number, client-side. 
+    // It's probably not a good idea to generate a random taxi number, client-side.
     this.taxiId = getRandomInt(1, 1000000);
   },
   mounted: function () {
@@ -82,9 +101,22 @@ var vm = new Vue({
       socket.emit("taxiQuit", this.taxiId);
     },
     acceptOrder: function (order) {
+            console.log(this.taxiId);
         this.customerMarkers = this.putCustomerMarkers(order);
-        order.taxiIdConfirmed = this.taxiId;
+        this.$set(this.orders[order.orderId], "taxiIdConfirmed", this.taxiId);
+        //order.taxiIdConfirmed = this.taxiId;
+        console.log(this.taxiId);
         socket.emit("orderAccepted", order);
+    },
+    idontknow: function(order){
+            console.log(order.something);
+            order.something = this.taxiId;
+            console.log(order.something);
+            socket.emit("idontknow", order);
+    },
+    removeOrder: function(orderId){
+            Vue.delete(this.orders, orderId);
+            socket.emit("removeOrder", orderId);
     },
     finishOrder: function (orderId) {
       Vue.delete(this.orders, orderId);
@@ -102,5 +134,8 @@ var vm = new Vue({
       var connectMarkers = L.polyline([order.fromLatLong, order.destLatLong], {color: 'blue'}).addTo(this.map);
       return {from: fromMarker, dest: destMarker, line: connectMarkers};
     },
+    getTaxi: function (order) {
+      socket.emit("getTaxi", order);
+    }
   }
 });
